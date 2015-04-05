@@ -1,0 +1,13 @@
+name: CommandPipe
+main: com.supaham.commandpipe.CommandPipePlugin
+version: '1.0'
+author: SupaHam
+permissions:
+  cmdpipe.*:
+    description: "CommandPipe master permission."
+    default: op
+    children:
+      'cmdpipe': true
+  cmdpipe:
+    description: "Permission to use the command pipe."
+    default: true
