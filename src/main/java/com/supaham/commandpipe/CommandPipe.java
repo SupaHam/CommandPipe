@@ -163,8 +163,8 @@ public class CommandPipe {
 
   public static class Configuration {
 
-    private Pattern escapeRegex = Pattern.compile("\\\\\\|$"); // \\\|$
-    private Pattern regex = Pattern.compile("\\|$"); // \|$
+    private Pattern escapeRegex = Pattern.compile(".*(\\\\\\|)$"); // \\\|$
+    private Pattern regex = Pattern.compile(".*(\\|)$"); // \|$
     private Map<String, Integer> limitGroups = new HashMap<>();
     private boolean listeningToChat = true;
     private boolean listeningToCommands = true;
