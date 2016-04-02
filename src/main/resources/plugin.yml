@@ -2,12 +2,20 @@ name: CommandPipe
 main: com.supaham.commandpipe.CommandPipePlugin
 version: '1.0'
 author: SupaHam
+commands:
+  commandpipe:
+    description: Reload CommandPipe configuration
+    aliases: [cmdpipe]
 permissions:
   cmdpipe.*:
     description: "CommandPipe master permission."
     default: op
     children:
       'cmdpipe': true
+      'cmdpipe.reload': true
   cmdpipe:
     description: "Permission to use the command pipe."
+    default: true
+  cmdpipe.reload:
+    description: "Permission to reload CommandPipe."
     default: true

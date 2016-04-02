@@ -6,6 +6,9 @@ import com.google.common.collect.Maps;
 
 import com.supaham.commandpipe.CommandPipe.Configuration;
 
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -62,6 +65,16 @@ public class CommandPipePlugin extends JavaPlugin {
   public void onDisable() {
     this.commandPipe.destroy();
     this.commandPipe = null;
+  }
+
+  @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    if (!sender.hasPermission("cmdpipe.reload")) {
+      sender.sendMessage(ChatColor.RED + "You don't have permission.");
+      return true;
+    }
+    reload();
+    sender.sendMessage(ChatColor.YELLOW + "You've successfully reloaded the CommandPipe configuration.");
+    return true;
   }
 
   public static CommandPipePlugin getPlugin() {
